@@ -16,8 +16,7 @@ namespace Tests.Services
         public async Task<HttpResponseMessage> PostSpeedServerApiGetResponse(IEnumerable<SnappedPointRequest> snappedPointsRequestArray)
         {
             var content = JsonConvert.SerializeObject(snappedPointsRequestArray);
-            HttpClient client = GetClient();
-            var response = await client.PostAsync(Url,
+            var response = await GetClient().PostAsync(Url,
                 new StringContent(content,
                     Encoding.UTF8, "application/json"));
 

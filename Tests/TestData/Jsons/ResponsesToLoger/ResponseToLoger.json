@@ -1,0 +1,54 @@
+﻿{
+  "snappedPoints": [
+    {
+      "location": {
+        "elevation": 570.07012939453125,
+        "latitude": -35.28074,
+        "longitude": 149.1291
+      },
+      "time": "2018-02-18T02:00:00+01:00",
+      "originalIndex": 0,
+      "placeId": "ChIJv5r0smlNFmsR5nunau79Fv4"
+    },
+    {
+      "location": {
+        "elevation": 570.07012939453125,
+        "latitude": -35.28074,
+        "longitude": 149.1291
+      },
+      "time": "2018-02-18T02:01:00+01:00",
+      "originalIndex": 0,
+      "placeId": "ChIJv5r0smlNFmsR5nunau79Fv4"
+    },
+    {
+      "location": {
+        "elevation": 570.07012939453125,
+        "latitude": -35.28074,
+        "longitude": 149.1291
+      },
+      "time": "2018-02-18T02:02:00+01:00",
+      "originalIndex": 0,
+      "placeId": "ChIJv5r0smlNFmsR5nunau79Fv4"
+    },
+    {
+      "location": {
+        "elevation": 570.07012939453125,
+        "latitude": -35.28074,
+        "longitude": 149.1291
+      },
+      "time": "2018-02-18T02:03:00+01:00",
+      "originalIndex": 0,
+      "placeId": "ChIJv5r0smlNFmsR5nunau79Fv4"
+    },
+    {
+      "location": {
+        "elevation": 570.18597412109375,
+        "latitude": -35.28078,
+        "longitude": 149.12911
+      },
+      "time": "2018-02-18T02:04:00+01:00",
+      "originalIndex": 0,
+      "placeId": "ChIJv5r0smlNFmsR5nunau79Fv4"
+    }
+  ]
+}

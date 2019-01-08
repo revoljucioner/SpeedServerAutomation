@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <None Remove="Environment\app.config" />
+    <None Remove="TestData\Jsons\ResponseToLoger.json" />
     <None Remove="TestData\RequestFromLoger.json" />
     <None Remove="Speed_Server.exe.config" />
     <None Remove="testhost.dll.config" />
@@ -18,11 +19,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="TestData\Jsons\ResponsesToLoger\ResponseToLoger.json">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="web.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="TestData\Jsons\RequestFromLoger.json">
+    <Content Include="TestData\Jsons\RequestsFromLoger\RequestFromLoger.json">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>

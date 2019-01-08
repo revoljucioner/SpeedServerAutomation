@@ -11,8 +11,7 @@ namespace Tests.Scenarios.SpeedServerService
         [Test]
         public async Task SpeedServerApiValidTrackStatusOk()
         {
-            var speedServerSteps = new Services.SpeedServerService();
-            var httpResponseMessage = await speedServerSteps.PostSpeedServerApiGetResponse(TracksStorage.TestSnappedPointRequestArray);
+            var httpResponseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(SnappedPointsRequestStorage.TestSnappedPointRequestArray);
 
             httpResponseMessage.StatusCode.Should().Be(HttpStatusCode.OK);
         }
@@ -20,8 +19,7 @@ namespace Tests.Scenarios.SpeedServerService
         [Test]
         public async Task SpeedServerApiEmptyTrackStatusBadRequest()
         {
-            var speedServerSteps = new Services.SpeedServerService();
-            var httpResponseMessage = await speedServerSteps.PostSpeedServerApiGetResponse(null);
+            var httpResponseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(null);
 
             httpResponseMessage.StatusCode.Should().Be(HttpStatusCode.BadRequest);
         }
