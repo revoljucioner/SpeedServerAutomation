@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using SpeedServer.Models;
+using Tests.Extensions;
 
 namespace Tests.Services
 {
@@ -30,11 +31,10 @@ namespace Tests.Services
             if (response.StatusCode != HttpStatusCode.OK)
                 throw new Exception(response.Content.ToString());
 
-            var contentString = await response.Content.ReadAsStringAsync();
             SpeedModel value;
             try
             {
-                value = JsonConvert.DeserializeObject<SpeedModel>(contentString);
+                value = response.GeContentAs<SpeedModel>();
             }
             catch (Exception)
             {

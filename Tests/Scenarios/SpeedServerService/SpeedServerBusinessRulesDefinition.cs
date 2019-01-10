@@ -1,6 +1,9 @@
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using FluentAssertions;
 using NUnit.Framework;
+using Tests.Extensions;
 using Tests.TestData;
 
 namespace Tests.Scenarios.SpeedServerService
@@ -8,11 +11,23 @@ namespace Tests.Scenarios.SpeedServerService
     public class SpeedServerBusinessRulesDefinition : BaseDefinition
     {
         [Test]
-        public async Task SpeedServerApiRandomTrackShouldMovePositions()
+        public async Task SpeedServerApiValidTrackShouldMovePositions()
         {
             var speedModelResponse = await SpeedServerService.PostSpeedServerApiAndGetSpeedModel(SnappedPointsRequestStorage.TestSnappedPointRequestArray);
             var speedModelExpected = SpeedModelResponseStorage.TestSnappedPointResponseArray;
             speedModelResponse.Should().BeEquivalentTo(speedModelExpected);
+        }
+
+        [Test]
+        public async Task SpeedServerApiPointsWithEmptyLocationStatusBadRequest()
+        {
+            var snappedPointsArrayRequest = SnappedPointsRequestStorage.TestSnappedPointRequestArray;
+            snappedPointsArrayRequest[0].Location = null;
+
+            var httpResponseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(snappedPointsArrayRequest);
+
+            httpResponseMessage.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+            httpResponseMessage.GeContentAs<string>().Should().Be("Location cannot be null");
         }
     }
 }
