@@ -12,18 +12,18 @@ namespace Tests.Scenarios.SpeedServerService
         [Test]
         public async Task SpeedServerApiValidTrackStatusOk()
         {
-            var httpResponseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(SnappedPointsRequestStorage.TestSnappedPointRequestArray);
+            var responseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(SnappedPointsRequestStorage.TestSnappedPointRequestArray);
 
-            httpResponseMessage.StatusCode.Should().Be(HttpStatusCode.OK);
+            responseMessage.StatusCode.Should().Be(HttpStatusCode.OK);
         }
 
         [Test]
         public async Task SpeedServerApiEmptyTrackStatusBadRequest()
         {
-            var httpResponseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(null);
+            var responseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(null);
 
-            httpResponseMessage.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-            httpResponseMessage.GeContentAs<string>().Should().Be("Track is empty");
+            responseMessage.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+            responseMessage.GeContentAs<string>().Should().Be("Track is empty");
         }
     }
 }

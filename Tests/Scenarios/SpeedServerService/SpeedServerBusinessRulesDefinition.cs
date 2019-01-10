@@ -24,10 +24,10 @@ namespace Tests.Scenarios.SpeedServerService
             var snappedPointsArrayRequest = SnappedPointsRequestStorage.TestSnappedPointRequestArray;
             snappedPointsArrayRequest[0].Location = null;
 
-            var httpResponseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(snappedPointsArrayRequest);
+            var responseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(snappedPointsArrayRequest);
 
-            httpResponseMessage.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-            httpResponseMessage.GeContentAs<string>().Should().Be("Location cannot be null");
+            responseMessage.StatusCode.Should().Be(HttpStatusCode.BadRequest);
+            responseMessage.GeContentAs<string>().Should().Be("Location cannot be null");
         }
     }
 }

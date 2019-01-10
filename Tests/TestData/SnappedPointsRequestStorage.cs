@@ -7,7 +7,7 @@ namespace Tests.TestData
     {
         #region Data
 
-        public static SnappedPointRequest[] TestSnappedPointRequestArray =
+        public static SnappedPointRequest[] TestSnappedPointRequestArray =>
             FileHelper.GetEntityFromJsonFile<SnappedPointRequest[]>("RequestFromLoger");
 
         #endregion
