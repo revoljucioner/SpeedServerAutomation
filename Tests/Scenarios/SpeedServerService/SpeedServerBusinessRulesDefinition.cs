@@ -26,7 +26,7 @@ namespace Tests.Scenarios.SpeedServerService
             var responseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(snappedPointsArrayRequest);
 
             responseMessage.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-            responseMessage.GeContentAs<string>().Should().Be("Location cannot be null");
+            responseMessage.GetContentAs<string>().Should().Be("Location cannot be null");
         }
     }
 }

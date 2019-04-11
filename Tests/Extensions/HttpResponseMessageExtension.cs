@@ -5,7 +5,7 @@ namespace Tests.Extensions
 {
     public static class HttpResponseMessageExtension
     {
-        public static T GeContentAs<T>(this HttpResponseMessage message)
+        public static T GetContentAs<T>(this HttpResponseMessage message)
         {
             var contentString = message.Content.ReadAsStringAsync().Result;
             var content = JsonConvert.DeserializeObject<T>(contentString);

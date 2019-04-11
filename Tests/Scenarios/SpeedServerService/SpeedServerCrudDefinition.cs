@@ -23,7 +23,7 @@ namespace Tests.Scenarios.SpeedServerService
             var responseMessage = await SpeedServerService.PostSpeedServerApiGetResponse(null);
 
             responseMessage.StatusCode.Should().Be(HttpStatusCode.BadRequest);
-            responseMessage.GeContentAs<string>().Should().Be("Track is empty");
+            responseMessage.GetContentAs<string>().Should().Be("Track is empty");
         }
     }
 }
