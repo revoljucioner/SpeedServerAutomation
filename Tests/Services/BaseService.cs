@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using SpeedServer.Models;
 using Tests.Environment;
 using Tests.Extensions;
+using Tests.Helpers;
 
 namespace Tests.Services
 {
@@ -14,6 +15,7 @@ namespace Tests.Services
     {
         protected virtual string Endpoint { get; }
         protected string Url => string.Concat(App.Configuration.Environment.BaseUrl, Endpoint);
+        protected static StringContentFactory StringContentFactory { get; private set; } = new StringContentFactory(Encoding.UTF8, "application/json");
 
         private static HttpClient _client;
 
@@ -56,11 +58,11 @@ namespace Tests.Services
             switch (requestBody)
             {
                 case string stringContent:
-                    return new StringContent(stringContent, Encoding.UTF8, "application/json");
+                    return StringContentFactory.CreateStringContent(stringContent);
                 case HttpContent httpContent:
                     return httpContent;
                 default:
-                    return new StringContent(JsonConvert.SerializeObject(requestBody), Encoding.UTF8, "application/json");
+                    return StringContentFactory.CreateStringContent(JsonConvert.SerializeObject(requestBody));
             }
         }
     }
