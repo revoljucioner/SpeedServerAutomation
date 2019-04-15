@@ -31,7 +31,7 @@ namespace Tests.Services
         {
             var response = await Post(requestBody);
             if (response.StatusCode != HttpStatusCode.OK)
-                throw new Exception(response.Content.ToString());
+                throw new Exception($"Server '{response.StatusCode}' status code");
 
             T value;
             try
