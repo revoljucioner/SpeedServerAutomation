@@ -4,7 +4,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
-using SpeedServer.Models;
 using Tests.Environment;
 using Tests.Extensions;
 using Tests.Helpers;
